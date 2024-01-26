@@ -1,0 +1,123 @@
+/* Nosotros.css */
+
+#nosotros-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+#titulo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#contenido p {
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+#contenido strong {
+  font-weight: bold;
+}
+
+.layoutn {
+  width: 134 0px;
+  height: 768px;
+
+  display: grid;
+  grid:
+    "header header header" auto "leftSide bodyn rightSide" 1fr "footer footer footer" auto / auto 1fr auto;
+  gap: 8px;
+  background-color: rgba(232, 247, 242, 0.24);
+}
+
+.header {
+  grid-area: header;
+}
+
+.leftSide { grid-area: leftSide;   max-width: 250px;   margin: 0 auto; /* Centra las imágenes en rightSide */
+
+}
+
+.rightSide {
+  max-width: 250px;
+  margin: 0 auto; /* Centra las imágenes en rightSide */
+
+}
+
+.leftSide img{
+  width: 100%;
+  height: auto;
+  display: block; /* Añade esta línea para eliminar espacio adicional debajo de las imágenes */
+  margin-bottom: 8px; /* Ajusta el margen entre las imágenes */
+}
+.rightSide img {
+  width: 100%;
+  height: auto;
+  display: block; /* Añade esta línea para eliminar espacio adicional debajo de las imágenes */
+  margin-bottom: 8px; /* Ajusta el margen entre las imágenes */
+}
+
+.bodyn {
+  grid-area: bodyn;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+#inicio-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+#titulo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#descripcion {
+  line-height: 1.5;
+}
+
+/* Footer.css */
+
+#footer-container {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+#redes-sociales {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+#redes-sociales a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+#redes-sociales a:hover {
+  color: #ffcc00;
+}
+@media (max-width: 768px) {
+  .layoutn {
+    grid-template-areas:
+      "header"
+      "bodyn"
+      "leftSide"
+      "rightSide"
+      "footer";
+    grid-template-rows: auto 1fr auto auto auto; /* Ajusta las filas para el contenido y el footer */
+  }
+}
+
