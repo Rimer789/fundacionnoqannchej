@@ -2,7 +2,7 @@ import React from "react";
 import ".//estilos/nosotros.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import imagen1 from "../imagenes/imagen1.jpg";
+import imagen1 from "..//imagenes/imagen1.jpg";
 import imagen2 from "..//imagenes/imagen2.jpg";
 import imagen3 from "..//imagenes/imagen3.jpg";
 import imagen4 from "..//imagenes/imagen4.jpg";

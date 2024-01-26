@@ -26,7 +26,6 @@ export default function Informacion() {
 
             <div class="footer">
                 <div id="footer-container">
-                    <p>Contactanos</p>
                     <div id="redes-sociales">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faFacebook} />

@@ -1,0 +1,205 @@
+/* Estilos generales para la página */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal dividido en 4 secciones */
+#contenedor {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Toma el 100% de la altura de la ventana */
+  background-color: #2c3e503b;
+}
+.mensaje-importante {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Puedes cambiar la fuente según tus preferencias */
+  font-size: 1.2em; /* Tamaño de la fuente */
+  color: #000000; /* Color del texto */
+  text-align: center; /* Alineación del texto */
+  line-height: 1.4; /* Altura de línea */
+  margin: 20px 0; /* Margen superior e inferior */
+}
+
+/* Estilos adicionales si es necesario */
+.mensaje-importante span {
+  color: #3498db; /* Color diferente para destacar una parte específica del texto si es necesario */
+}
+
+
+/* Parte superior para la descripción */
+#descripciond {
+  background-color: #3498db; /* Color de fondo */
+  color: #ffffff; /* Color del texto */
+  padding: 20px;
+  text-align: center;
+}
+
+/* División en dos partes iguales */
+#division {
+  display: flex;
+  flex: 1;
+}
+
+/* Lado izquierdo y derecho */
+#izquierdo, #derecho {
+  flex: 1;
+  padding: 20px;
+}
+
+#izquierdo {
+  background-color: #96dbb37a; /* Color de fondo izquierdo */
+  border-radius: 50px;
+}
+
+#derecho {
+  background-color: #e0d5d38a; /* Color de fondo derecho */
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column; /* Alinear elementos en una columna */
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  padding: 20px; /* Ajusta el relleno según sea necesario */
+}
+
+
+/* Parte inferior para referencias */
+#referencias {
+  background-color: #333; /* Color de fondo inferior */
+  color: #ffffff; /* Color del texto */
+  padding: 0px;
+  text-align: center;
+}
+/* Estilos generales para los botones */
+button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Estilos para el botón de Cuenta Bancaria */
+.boton-bancaria {
+  background-color: #3498db; /* Color azul */
+  color: #ffffff; /* Color del texto */
+}
+
+.boton-bancaria:hover {
+  background-color: #2980b9; /* Cambio de color al pasar el ratón */
+}
+
+.boton-bancaria.seleccionado {
+  background-color: #2c3e50; /* Color diferente cuando está seleccionado */
+}
+
+/* Estilos para el botón de PayPal */
+.boton-paypal {
+  background-color: #469dd6; /* Color verde */
+  color: #ffffff; /* Color del texto */
+}
+
+.boton-paypal:hover {
+  background-color: #075eff; /* Cambio de color al pasar el ratón */
+}
+
+.boton-paypal.seleccionado {
+  background-color: #388e3c; /* Color diferente cuando está seleccionado */
+}
+
+/* Estilos para el botón de Yape */
+.boton-yape {
+  background-color: #d33ce7; /* Color rojo */
+  color: #ffffff; /* Color del texto */
+}
+
+.boton-yape:hover {
+  background-color: #b404fa; /* Cambio de color al pasar el ratón */
+}
+
+.boton-yape.seleccionado {
+  background-color: #c0392b; /* Color diferente cuando está seleccionado */
+}
+
+#footer-container {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+#redes-sociales {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+#redes-sociales a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+#redes-sociales a:hover {
+  color: #ffcc00;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el contenido del modal */
+.modal-contenido {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para un tamaño de modal mediano */
+.modal-contenido.mediano {
+  width: 400px;
+}
+
+/* Estilos para el botón de cerrar */
+.cerrar-modal {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cerrar-modal:hover {
+  background-color: #2980b9;
+}
+
+.imagen-redonda {
+  width: 100%; /* Ajusta el tamaño de la imagen según tus necesidades */
+  height: 100%;
+  border-radius: 50%; /* Hace que la imagen tenga forma redonda */
+  object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
+}
+/* Media query solo para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Cambiar el orden en dispositivos móviles */
+  #division {
+    flex-direction: column-reverse;
+  }
+
+  #izquierdo, #derecho {
+    order: 1;
+  }
+  .mensaje-importante {
+    font-size: 1.1em; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+  }
+}

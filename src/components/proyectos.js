@@ -92,7 +92,7 @@ export default function Proyectos() {
 
         <section class="layoutp">
             <div class="header">
-                <div id="titulo">Proyectos</div>
+                <div id="titulo"></div>
                 <div id="descripcion">
                     <p>
                         Los proyectos y programas desarrollados
