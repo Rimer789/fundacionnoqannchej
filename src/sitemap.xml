@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- URL principal del sitio -->
   <url>
     <loc>https://fundacionnoqannchej.vercel.app/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Otras URLs del sitio -->
   <url>
     <loc>https://fundacionnoqannchej.vercel.app/proyectos</loc>
     <changefreq>weekly</changefreq>
@@ -21,6 +19,5 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Agrega más URLs según la estructura de tu sitio -->
-
 </urlset>
+
