@@ -22,11 +22,14 @@ export default function Proyectos() {
             additionalInfo: [
                 {
                     imageUrl: imagen18,
+                    altText: "mejorando el medio ambiente",
+
                 },
                 {
                     imageUrl: imagen18,
                 }
-            ],        },
+            ],
+        },
         {
             title: "FORTALECIENDO EL DESARROLLO SOSTENIBLE",
             description: "El apoyo del desarrollo del programa de promoción de plantaciones forestales para las familias del Oriente Boliviano y zonas tropicales...",
@@ -51,7 +54,8 @@ export default function Proyectos() {
                 {
                     imageUrl: imagen18,
                 }
-            ],        },
+            ],
+        },
         {
             title: "IMPLEMENTACION DE UN COMPLEJO PRODUCTIVO FORESTAL INDUSTRIAL EN LA REGION VALLES DEL DEPARTAMENTO DE COCHABAMBA",
             description: "Socialización del programa en las regiones del Oriente Boliviano y zonas tropicales del país. Recuperación de especies nativas en el área forestal...",
@@ -63,7 +67,8 @@ export default function Proyectos() {
                 {
                     imageUrl: imagen18,
                 }
-            ],        },
+            ],
+        },
         {
             title: "TRANSFORMANDO VIDAS EN EL CHAPARE",
             description: "profesionalización de 48 beneficiados, hijos de comunarios, a través de estudios universitarios e institutos técnicos. un impulso educativo para el desarrollo de la región.",
@@ -75,7 +80,8 @@ export default function Proyectos() {
                 {
                     imageUrl: imagen18,
                 }
-            ],        },
+            ],
+        },
     ];
 
     const openModal = (index) => {
@@ -122,8 +128,10 @@ export default function Proyectos() {
                                     <div className="additional-images">
                                         {selectedProject.additionalInfo.map((additionalImage, index) => (
                                             <div key={index} className="additional-image">
-                                                <img src={additionalImage.imageUrl} alt={`Imagen adicional ${index + 1}`} />
-                                                <p>{additionalImage.description}</p>
+                                                <img
+                                                    src={additionalImage.imageUrl}
+                                                    alt={additionalImage.altText || `Imagen adicional ${index + 1} de ${selectedProject.title}`}
+                                                />                                                <p>{additionalImage.description}</p>
                                             </div>
                                         ))}
                                     </div>
