@@ -8,6 +8,7 @@ import Proyectos from '../components/proyectos';
 import './cs.css';
 import Contactos from '../components/contactos';
 import Donaciones from '../components/donaciones';
+import Cuestionario from '../components/cuestionario';
 
 const Menu = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -26,11 +27,11 @@ const Menu = () => {
 
     useEffect(() => {
         let prevScrollPos = window.scrollY;
-    
+
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
             const nav = document.querySelector('.menu');
-    
+
             if (scrollPosition > prevScrollPos) {
                 // Oculta el menú al hacer scroll hacia abajo
                 nav.classList.add('hidden');
@@ -38,12 +39,12 @@ const Menu = () => {
                 // Muestra el menú al hacer scroll hacia arriba
                 nav.classList.remove('hidden');
             }
-    
+
             prevScrollPos = scrollPosition;
         };
-    
+
         window.addEventListener('scroll', handleScroll);
-    
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -74,6 +75,9 @@ const Menu = () => {
                     <li className={location.pathname === '/donaciones' ? 'active' : ''} onClick={() => handleLinkClick('/donaciones')}>
                         <Link to='/donaciones'>Donaciones</Link>
                     </li>
+                    <li className={location.pathname === '/cuestionario' ? 'active' : ''} onClick={() => handleLinkClick('/cuestionario')}>
+                        <Link to='/cuestionario'>calculadora</Link>
+                    </li>
                 </ul>
             </nav>
             <div>
@@ -83,6 +87,7 @@ const Menu = () => {
                     <Route path="/proyectos" element={<Proyectos />} />
                     <Route path="/contactos" element={<Contactos />} />
                     <Route path="/donaciones" element={<Donaciones />} />
+                    <Route path='/cuestionario' element={<Cuestionario/>} />
                 </Routes>
             </div>
         </>
