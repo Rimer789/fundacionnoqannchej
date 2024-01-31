@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import ".//estilos/proyectos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -7,8 +8,6 @@ import imagen14 from "..//imagenes/imagen14.jpg";
 import imagen17 from "..//imagenes/imagen17.jpg";
 import imagen19 from "..//imagenes/imagen19.jpg";
 import imagen20 from "..//imagenes/imagen20.jpg";
-
-
 
 export default function Proyectos() {
     const [modalVisible, setModalVisible] = useState(false);
@@ -94,10 +93,22 @@ export default function Proyectos() {
         setSelectedProject(null);
     };
 
-    return (
+    const helmetProps = selectedProject && {
+        title: selectedProject.title,
+        meta: [
+            { name: 'description', content: selectedProject.description },
+            ...(selectedProject.additionalInfo || []).map((image, index) => ({
+                property: `og:image${index + 1}`,
+                content: image.imageUrl,
+            })),
+        ],
+    };
 
-        <section class="layoutp">
-            <div class="header">
+    return (
+        <section className="layoutp">
+            <Helmet {...helmetProps} />
+
+            <div className="header">
                 <div id="titulo"></div>
                 <div id="descripcion">
                     <p>
@@ -106,7 +117,8 @@ export default function Proyectos() {
                     </p>
                 </div>
             </div>
-            <div class="bodyp">
+
+            <div className="bodyp">
                 <div id="proyectos-container">
                     {projects.map((project, index) => (
                         <div key={index} className="proyecto-box" onClick={() => openModal(index)}>
@@ -130,8 +142,9 @@ export default function Proyectos() {
                                             <div key={index} className="additional-image">
                                                 <img
                                                     src={additionalImage.imageUrl}
-                                                    alt={additionalImage.altText || `Imagen adicional ${index + 1} de ${selectedProject.title}`}
-                                                />                                                <p>{additionalImage.description}</p>
+                                                    alt={additionalImage.altText || `Descripción de la imagen adicional ${index + 1} de ${selectedProject.title}`}
+                                                />
+                                                <p>{additionalImage.description}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -141,8 +154,10 @@ export default function Proyectos() {
                     )}
                 </div>
             </div>
-            <div class="rightSide"></div>
-            <div class="footer">
+
+            <div className="rightSide"></div>
+
+            <div className="footer">
                 <div id="footer-container">
                     <div id="redes-sociales">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
@@ -160,7 +175,6 @@ export default function Proyectos() {
                     </div>
                 </div>
             </div>
-
         </section>
     );
 }
