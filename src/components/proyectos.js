@@ -107,7 +107,6 @@ export default function Proyectos() {
     return (
         <section className="layoutp">
             <Helmet {...helmetProps} />
-
             <div className="header">
                 <div id="titulo"></div>
                 <div id="descripcion">
