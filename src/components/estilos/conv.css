@@ -23,6 +23,7 @@
   .layoutc {
     width: 134  0px;
     height: 768px;
+    margin-top: 5%;
   
     display: grid;
     grid:

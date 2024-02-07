@@ -99,6 +99,7 @@ const Cuestionario = () => {
           <Link to="/">atras</Link>
         </div>
       )}
+      <Link to="/">atras</Link>
     </div>
   );
 };

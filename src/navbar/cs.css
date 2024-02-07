@@ -1,11 +1,18 @@
 .menu {
-  background-color: #198754;
+  background-color: #919c979c;
   padding: 0px;
-  position: relative;
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
   z-index: 1;
   justify-content: center;
   align-items: center;
 }
+
+.contenido-despues-del-menu {
+  margin-top: 20%; 
+}
+
 
 .menu ul {
   list-style: none;
@@ -42,8 +49,6 @@
   z-index: 1000; /* Ajusta el valor según sea necesario */
   transition: top 0.3s;
 }
-
-/* cs.css */
 
 .menu li.active a {
   background-color: #9de6b3; 

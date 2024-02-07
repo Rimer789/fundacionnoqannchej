@@ -6,6 +6,7 @@ body {
 
 /* Contenedor principal dividido en 4 secciones */
 #contenedor {
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   height: 100vh; /* Toma el 100% de la altura de la ventana */
@@ -189,6 +190,7 @@ button {
   border-radius: 50%; /* Hace que la imagen tenga forma redonda */
   object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
 }
+
 /* Media query solo para dispositivos móviles */
 @media (max-width: 768px) {
   /* Cambiar el orden en dispositivos móviles */

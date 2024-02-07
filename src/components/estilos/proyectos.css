@@ -30,7 +30,7 @@
 .layoutp {
   width: 100%;
   height: auto;
-
+  margin-top: 5%;
   display: grid;
   grid:
     "header header header" auto ". bodyp rightSide" 1fr "footer footer footer" auto / auto 1fr auto;

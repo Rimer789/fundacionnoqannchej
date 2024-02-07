@@ -9,6 +9,8 @@ import './cs.css';
 import Contactos from '../components/contactos';
 import Donaciones from '../components/donaciones';
 import Cuestionario from '../components/cuestionario';
+import blancoImg from './blanco.jpg';
+
 
 const Menu = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -54,30 +56,30 @@ const Menu = () => {
         <>
             <div style={{ marginBottom: isNavFixed ? '60px' : '0' }}>
             </div>
-
             <nav className={`menu ${menuActive || isNavFixed ? 'active' : ''}`}>
                 <div className="hamburger-icon" onClick={toggleMenu}>
                     &#9776;
                 </div>
                 <ul>
+                    {/* <div className="logo-container">
+                        <img src={blancoImg} alt="Logotipo" className="logo" />
+                    </div> */}
                     <li className={location.pathname === '/' ? 'active' : ''} onClick={() => handleLinkClick('/')}>
-                        <Link to="/">Inicio</Link>
+                        <Link to="/">QUIENES SOMOS?</Link>
                     </li>
                     <li className={location.pathname === '/nosotros' ? 'active' : ''} onClick={() => handleLinkClick('/nosotros')}>
-                        <Link to="/nosotros">Acerca de nosotros</Link>
+                        <Link to="/nosotros">QUE HACEMOS?</Link>
                     </li>
                     <li className={location.pathname === '/proyectos' ? 'active' : ''} onClick={() => handleLinkClick('/proyectos')}>
-                        <Link to="/proyectos">Proyectos</Link>
+                        <Link to="/proyectos">PROYECTOS</Link>
                     </li>
                     <li className={location.pathname === '/contactos' ? 'active' : ''} onClick={() => handleLinkClick('/contactos')}>
-                        <Link to='/contactos'>Convenios</Link>
+                        <Link to='/contactos'>CONVENIOS</Link>
                     </li>
                     <li className={location.pathname === '/donaciones' ? 'active' : ''} onClick={() => handleLinkClick('/donaciones')}>
-                        <Link to='/donaciones'>Donaciones</Link>
+                        <Link to='/donaciones'>DONAR</Link>
                     </li>
-                    <li className={location.pathname === '/cuestionario' ? 'active' : ''} onClick={() => handleLinkClick('/cuestionario')}>
-                        <Link to='/cuestionario'>calculadora</Link>
-                    </li>
+
                 </ul>
             </nav>
             <div>
@@ -87,7 +89,7 @@ const Menu = () => {
                     <Route path="/proyectos" element={<Proyectos />} />
                     <Route path="/contactos" element={<Contactos />} />
                     <Route path="/donaciones" element={<Donaciones />} />
-                    <Route path='/cuestionario' element={<Cuestionario/>} />
+                    <Route path='/cuestionario' element={<Cuestionario />} />
                 </Routes>
             </div>
         </>
