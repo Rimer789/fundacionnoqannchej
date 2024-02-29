@@ -80,13 +80,13 @@ export default function Donaciones() {
 
       <div id="referencias">
         <div id="redes-sociales">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/profile.php?id=61556457446489" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
           <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faWhatsapp} />
           </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/noqanchej/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
           <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">

@@ -1,165 +1,105 @@
-.tituloa {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  max-height: 3em;
-  line-height: 1.5em;
-  font-size: 18px;
-}
-#titulo {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 20px;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.descripcion {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  max-height: 3em;
-  line-height: 1.5em;
-  font-size: 17px;
-}
-
-
-.layoutp {
-  width: 100%;
-  height: auto;
-  margin-top: 5%;
-  display: grid;
-  grid:
-    "header header header" auto ". bodyp rightSide" 1fr "footer footer footer" auto / auto 1fr auto;
-  gap: 8px;
-}
-
-.header {
-  grid-area: header;
-}
-
-.bodyp {
-  grid-area: bodyp;
-}
-
-.rightSide {
-  grid-area: rightSide;
-}
-
-.footer {
-  grid-area: footer;
-}
-
-#proyectos-container {
-  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-  gap: 10px;
-}
-
-.proyecto-box {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-
-.proyecto-box img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.modal {
+.proyectos-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.521);
+  height: 100vh;
+
+  position: relative;
+}
+
+.proyectos-izquierda {
+  flex: 1;
+  padding: 20px;
+  flex-wrap: wrap; 
+  margin: auto;
+}
+
+
+.proyectos-derecha {
+  margin-top: 20%;
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end; 
+}
+
+
+.proyecto {
+  width: 200px;
+  flex-shrink: 0;
+  margin-left: -8%;
+}
+
+.proyecto img {
+  width: 100px;
+  height: 200px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.project-details h2 {
+  margin-top: -30%;
+  color: white;
+  width: 240%;
+}
+
+.project-details p {
+  margin-top: 10px;
+  color: #ffffff;
+  width: 200%;
+}
+
+.background-image {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.26);
+
 }
 
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  position: relative;
-  margin-top: auto;
-}
-
-.modal-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  max-height: 200px;
-}
-
-.additional-image img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  max-height: 200px;
-}
-
-.additional-image {
+#referenciasi {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #ffffff;
+  padding: 10px;
   text-align: center;
-  margin-bottom: 20px;
-}
-
-.additional-image p {
-  font-size: 14px;
-  margin-top: 5px;
+  z-index: 999; /* Asegura que esté por encima de otros elementos */
 }
 
 
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
+#footer-containeri {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
+#redes-socialesi {
+  font-size: 24px;
+  margin-top: 10px;
+}
 
-@media (max-width: 768px) {
-  #proyectos-container {
-    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr)); /* Ajusta el tamaño mínimo y máximo de los cuadros para dispositivos móviles */
-    gap: 10px; /* Ajusta el espacio entre los cuadros en dispositivos móviles */
-  }
+#redes-socialesi a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
 
-  .proyecto-box {
-    width: 100%;
-    margin-bottom: 10px; /* Agrega espacio inferior entre los cuadros en dispositivos móviles */
-    margin-right: 20X;
-  }
-
-  .layoutp {
-    grid:
-      "header" auto "bodyp" minmax(0, 1fr)
-      "footer" auto / 1fr;
-    margin-left: 10px;
-
-  }
-
-  .modal {
-    overflow-y: auto;
-    margin-top: 20px;
-  }
-
-  .modal-content {
-    margin: 20px;
-    padding: 20px;
-    margin-top: auto;
-  }
-
-  .close {
-    top: 5px;
-    right: 5px;
-  }
+#redes-socialesi a:hover {
+  color: #ffcc00;
 }

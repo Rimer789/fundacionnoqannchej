@@ -6,7 +6,7 @@ body {
   position: fixed; /* Fija el botón en una posición específica */
   bottom: 20px; /* Distancia desde la parte inferior de la ventana */
   right: 10%; /* Distancia desde el borde derecho de la ventana */
-  top: 78%;
+  top: 76%;
   background-color: #d2ddd8; /* Color de fondo del botón */
   color: #006633; /* Color del texto del botón */
   border: none; /* Sin borde */
@@ -179,6 +179,7 @@ body {
 }
 
 #descripcioni {
+  background-color: #33333375;
   line-height: 1.5;
   color: #ffffff;
   text-align: left;

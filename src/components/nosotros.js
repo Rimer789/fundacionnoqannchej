@@ -2,96 +2,89 @@ import React from "react";
 import ".//estilos/nosotros.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import imagen1 from "..//imagenes/imagen1.jpg";
-import imagen2 from "..//imagenes/imagen2.jpg";
-import imagen3 from "..//imagenes/imagen3.jpg";
-import imagen4 from "..//imagenes/imagen4.jpg";
-import imagen5 from "..//imagenes/imagen5.jpg";
-import imagen6 from "..//imagenes/imagen6.jpg";
-import imagen7 from "..//imagenes/imagen7.jpg";
-import imagen8 from "..//imagenes/imagen8.jpg";
-import imagen9 from "..//imagenes/imagen9.jpg";
-import imagen10 from "..//imagenes/imagen10.jpg";
+import { Link } from "react-router-dom";
 
 
-
-
-export default function Nosotros() {
+export default function nosotros() {
     return (
-        <section class="layoutn">
-            <div class="leftSide">
-                <img src={imagen1} alt="Imagen 1" />
-                <br></br>
-                <br></br>
-                <img src={imagen2} alt="Imagen 1" />
-                <br></br>
-                <br></br>
-                <img src={imagen3} alt="Imagen 1" />
-                <br></br>
-                <br></br>
-                <img src={imagen4} alt="Imagen 1" />
-                <br></br>
-                <br></br>
-                <img src={imagen5} alt="Imagen 1" />
+        <div id="contenedorn">
+            <head>
+                <title> NOQANCHEJ FUNDACION - Restauración y Conservación del Medio Ambiente</title>
+                <meta name="description" content="NOQANCHEJ está comprometido con la restauración y conservación del medio ambiente, promoviendo un futuro sostenible para las generaciones venideras." />
+            </head>
+            <div id="divisionn">
+                <div id="izquierdon">
+                    <div id="titulon" className="titulon">
+                        <p className="n">NOQANCHEJ</p>
+                        <p className="f">FUNDACION</p>
+                    </div>
+                </div>
+                <div id="derechon">
+                    <div id="descripcionn" className="descripcionn">
+                        <p>
+                            La Fundación NOQANCHEJ es una entidad de Derecho Privado, sin fines de lucro,
+                            con sede en el Departamento de Cochabamba, Bolivia. Constituida bajo el régimen legal de las fundaciones, la organización se rige por estatutos y normativas
+                            constitucionales y legales. Su misión es promover el desarrollo del capital humano
+                            y social de manera sostenible, enfocándose en la formación y educación del potencial humano...
+                        </p>
+                    </div>
+                    <div >
+                        <Link to="/Cuestionario"> <div className="boton-flotante"> OYE TU?</div></Link>
+                    </div>
+
+                </div>
 
             </div>
-            <div class="bodyn">
-                <div id="nosotros-container">
-                    <div id="titulo">Fundación NOQANCHEJ:</div>
-                    <div id="contenido">
-                        <p>
-                            La Fundación NOQANCHEJ es una entidad de Derecho Privado, sin fines de lucro, con sede en el Departamento de Cochabamba, Bolivia. Constituida bajo el régimen legal de las fundaciones, la organización se rige por estatutos y normativas constitucionales y legales. Su misión es promover el desarrollo del capital humano y social de manera sostenible, enfocándose en la formación y educación del potencial humano...
-                        </p>
-                        <p>
-                            <strong>Visión:</strong> La visión estratégica de la Fundación se proyecta desde el Trópico de Cochabamba hacia todo el territorio nacional y América Latina. Se basa en el ejercicio regular y permanente del pensamiento sistémico, el análisis de la realidad y la búsqueda de soluciones a mediano y largo plazo. La Fundación busca siempre preferir actividades que respondan a una visión estratégica en la consecución de sus fines, sin perder de vista lo importante para el futuro.
-                        </p>
-                        <p>
-                            <strong>Misión:</strong> La misión de la Fundación NOQANCHEJ es promover el desarrollo del capital humano y social de manera sustentable. Se enfoca principalmente en la formación y educación del potencial humano, complementando los servicios estatales y generando innovaciones tecnológicas de alto impacto. La Fundación aspira a aumentar la competitividad de los recursos humanos y sectores productivos, contribuyendo a mejorar los niveles de vida de la población.
-                        </p>
-                        <p>
-                            En NOQANCHEJ, nos fundamentamos en principios de apoyo a la juventud, desarrollo armónico de la familia, pluralismo, inclusividad y respeto a la dignidad humana. Somos una institución sin vinculación política, comprometida con la democracia, la cultura, y la promoción del desarrollo rural. Valoramos la libertad individual, el desarrollo sostenible y reconocemos a la familia como el núcleo vital de la sociedad.
-                        </p>
-                        <p>
-                            La duración de nuestra Fundación es indefinida, y nos esforzamos por contribuir al mejoramiento de las condiciones de vida a través de programas educativos, sociales, empresariales y habitacionales. Nos dedicamos a proyectos de investigación, desarrollo de cultivos alternativos, promoción del ecoturismo, y diversas iniciativas que generan impacto positivo. En NOQANCHEJ, nuestro compromiso va más allá, aspiramos a crear un legado duradero y sostenible para las generaciones venideras.
-                        </p>
+            <div id="contenedorn1">
+                <div id="divisionn1">
+                    <div id="izquierdon1">
+                        <div id="descripcionn" className="descripcionn">
+                            <p>
+                                Apoyamos a las personas en el acceso a formación técnica profesional, gestionamos proyectos educativos, sociales y productivos, creamos grupos sociales fortalecidos, difundimos programas medioambientales y brindamos capacitación en el manejo de cultivos orgánicos, todo con el objetivo de preservar la flora y fauna, y promover un desarrollo sostenible.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="derechon1">
+                        <div id="titulon" className="titulon">
+                            <p className="n">VISION</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="rightSide">
-                <img src={imagen6} alt="Imagen 2" />
-                <br></br>
-                <br></br>
-                <img src={imagen7} alt="Imagen 2" />
-                <br></br>
-                <br></br>
-                <img src={imagen8} alt="Imagen 2" />
-                <br></br>
-                <br></br>
-                <img src={imagen9} alt="Imagen 2" />
-                <br></br>
-                <br></br>
-                <img src={imagen10} alt="Imagen 2" />
-                <br></br>
-                <br></br>
-            </div>
-            <div class="footer">
-                <div id="footer-container">
-                    <div id="redes-sociales">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faFacebook} />
-                        </a>
-                        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faWhatsapp} />
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faInstagram} />
-                        </a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-                            <FontAwesomeIcon icon={faTwitter} />
-                        </a>
+            <div id="contenedorn2">
+                <div id="divisionn2">
+                    <div id="izquierdon2">
+                        <div id="descripcionn2" className="descripcionn2">
+                            <p>Nos visualizamos como líderes en el desarrollo integral de comunidades, siendo reconocidos por nuestro compromiso con la educación técnica, la sostenibilidad ambiental y el fortalecimiento social. Aspiramos a ser un referente en la promoción de prácticas agrícolas orgánicas y la conservación de la biodiversidad, contribuyendo así al bienestar humano y al equilibrio ecológico.</p>
+                        </div>
+                    </div>
+                    <div id="derechon2">
+                        <div id="titulon" className="titulon">
+                        <p className="n">MISION</p>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <div id="referenciasi">
+                <div id="redes-socialesi">
+                <a href="https://www.facebook.com/profile.php?id=61556457446489" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faFacebook} />
+                    </a>
+                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faWhatsapp} />
+                    </a>
+                    <a href="https://www.instagram.com/noqanchej/" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faInstagram} />
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faTwitter} />
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
     );
 }

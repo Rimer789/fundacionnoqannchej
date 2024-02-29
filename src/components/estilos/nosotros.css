@@ -1,124 +1,352 @@
-/* Nosotros.css */
-
-#nosotros-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
+@font-face {
+  font-family: 'Utendo Black';
+  src: url('https://www.dafont.com/utendo.font');
 }
-
-#titulo {
-  font-size: 20px;
+body {
+  margin: 0;
+  padding: 0;
+}
+.boton-flotante {
+  position: fixed; /* Fija el botón en una posición específica */
+  bottom: 20px; /* Distancia desde la parte inferior de la ventana */
+  top: 76%;
+  background-color: #d2ddd8; /* Color de fondo del botón */
+  color: #006633; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-top-left-radius: 30px; /* Redondea la esquina superior izquierda */
+  border-bottom-left-radius: 30px; /* Redondea la esquina inferior izquierda */
+  border-top-right-radius: 30px; /* Redondea la esquina superior derecha */
+  border-bottom-right-radius: 30px;  
+  width: 120px; /* Ancho del botón */
+  height: 80px; /* Altura del botón */
+  font-size: 24px; /* Tamaño de fuente del icono */
+  line-height: 70px; /* Centra verticalmente el icono */
+  text-align: center; /* Centra horizontalmente el icono */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  z-index: 999; /* Asegura que el botón esté por encima de otros elementos */
   font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 20px;
 }
 
-#contenido p {
-  text-align: justify;
-  margin-bottom: 15px;
+/* Cambia el estilo al pasar el cursor sobre el botón */
+.boton-flotante:hover {
+  background-color: #d2ddd8; /* Cambia el color de fondo */
 }
 
-#contenido strong {
-  font-weight: bold;
+
+#contenedorn {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url('../../interfaz/img5.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.layoutn {
-  width: 134 0px;
-  height: 768px;
-margin-top: 5%;
-  display: grid;
-  grid:
-    "header header header" auto "leftSide bodyn rightSide" 1fr "footer footer footer" auto / auto 1fr auto;
-  gap: 8px;
-  background-color: rgba(232, 247, 242, 0.24);
+#contenedorn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.26);
 }
 
-.header {
-  grid-area: header;
+#contenedorn>* {
+  position: relative;
+}
+#contenedorn1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url('../../interfaz/img6.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.leftSide { grid-area: leftSide;   max-width: 250px;   margin: 0 auto; /* Centra las imágenes en rightSide */
-
+#contenedorn1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.26);
 }
 
-.rightSide {
-  max-width: 250px;
-  margin: 0 auto; /* Centra las imágenes en rightSide */
-
+#contenedorn1>* {
+  position: relative;
+}
+#contenedorn2 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url('../../interfaz/img7.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.leftSide img{
-  width: 100%;
-  height: auto;
-  display: block; /* Añade esta línea para eliminar espacio adicional debajo de las imágenes */
-  margin-bottom: 8px; /* Ajusta el margen entre las imágenes */
-}
-.rightSide img {
-  width: 100%;
-  height: auto;
-  display: block; /* Añade esta línea para eliminar espacio adicional debajo de las imágenes */
-  margin-bottom: 8px; /* Ajusta el margen entre las imágenes */
+#contenedorn2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.26);
 }
 
-.bodyn {
-  grid-area: bodyn;
+#contenedorn2>* {
+  position: relative;
 }
 
-.footer {
-  grid-area: footer;
+.mensaje-importanten {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
+  color: #000000;
+  text-align: center;
+  line-height: 1.4;
+  margin: 20px 0;
 }
 
-#inicio-container {
-  max-width: 800px;
-  margin: 0 auto;
+.mensaje-importanten span {
+  color: #3498db;
+}
+
+#descripcionn {
+  background-color: #00020300;
+  color: #ffffff;
   padding: 20px;
-  font-family: 'Arial', sans-serif;
   text-align: center;
 }
 
-#titulo {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 15px;
+#divisionn {
+  display: flex;
+  flex: 1;
 }
 
-#descripcion {
-  line-height: 1.5;
+#izquierdon,
+#derechon {
+  flex: 1;
+  padding: 20px;
 }
 
-/* Footer.css */
+#izquierdon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+}
 
-#footer-container {
+#derechon {
+  background-color: #a8a1a080;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+}
+#descripcionn1 {
+  background-color: #00020300;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+#divisionn1 {
+  display: flex;
+  flex: 1;
+}
+
+#izquierdon1,
+#derechon1 {
+  flex: 1;
+  padding: 20px;
+}
+
+#izquierdon1 {
+  background-color: #a8a1a080;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+#derechon1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#descripcionn2 {
+  background-color: #00020300;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+#divisionn2 {
+  display: flex;
+  flex: 1;
+}
+
+#izquierdon2,
+#derechon2 {
+  flex: 1;
+  padding: 20px;
+}
+
+#izquierdon2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+ 
+}
+
+#derechon2 {
+  background-color: #a8a1a080;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+#referenciasn {
+  background-color: #333;
+  color: #ffffff;
+  padding: 0px;
+  text-align: center;
+}
+
+#footer-containern {
   background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
 }
 
-#redes-sociales {
+#redes-socialesi {
   font-size: 24px;
   margin-top: 10px;
 }
 
-#redes-sociales a {
+#redes-socialesi a {
   color: #fff;
   margin: 0 10px;
   text-decoration: none;
 }
 
-#redes-sociales a:hover {
+#redes-socialesi a:hover {
   color: #ffcc00;
 }
+
+.imagen-redondai {
+  width: 48%;
+  height: 39%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
 @media (max-width: 768px) {
-  .layoutn {
-    grid-template-areas:
-      "header"
-      "bodyn"
-      "leftSide"
-      "rightSide"
-      "footer";
-    grid-template-rows: auto 1fr auto auto auto; /* Ajusta las filas para el contenido y el footer */
+
+  #contenedorn {
+    background-repeat: repeat;
+    background-size: auto;
+  }
+
+  #divisionn {
+    flex-direction: column-reverse;
+  }
+
+  #izquierdon,
+  #derechon {
+    order: 1;
+  }
+  #contenedorn1 {
+    background-repeat: repeat;
+    background-size: auto;
+  }
+
+  #divisionn1 {
+    flex-direction: column-reverse;
+  }
+
+  #izquierdon1,
+  #derechon1 {
+    order: 1;
+  }
+  #contenedorn2 {
+    background-repeat: repeat;
+    background-size: auto;
+  }
+
+  #divisionn2 {
+    flex-direction: column-reverse;
+  }
+
+  #izquierdon2,
+  #derechon2 {
+    order: 1;
+  }
+
+  .mensaje-importanten {
+    font-size: 1.1em;
   }
 }
 
+@media (min-width: 769px) {
+
+  #contenedorn {
+    height: 100vh;
+  }
+}
+
+#titulon {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffffff;
+  margin-top: 10%; 
+  font-family: 'Utendo Black';
+}
+#titulon1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffffff;
+  margin-top: 30%; 
+  margin-left: -10%;
+}
+.f{
+  font-size: 30px;
+  font-family: 'Utendo Black', sans-serif;
+}
+.n{
+  font-size: 70px;
+  font-family: 'Utendo Black', sans-serif;
+}
+
+#descripcionn {
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: left;
+  position: relative;
+  font-family: 'Versatylo Rounded';
+}
+
+p{
+  font-family: 'Versatylo Rounded';
+  font-size: 2.5ch;
+
+}

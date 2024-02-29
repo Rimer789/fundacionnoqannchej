@@ -1,3 +1,29 @@
+/*.menu {
+  background-color: #919c979c;
+  padding: 0px;
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu li {
+  margin: 0 40px; /* Ajusta el margen horizontal entre los elementos del menú 
+}
+
+.logo-container {
+  margin-right: auto; /* Mueve el logotipo a la izquierda 
+  position: relative; /* Establece la posición en relativa para que el z-index funcione 
+  z-index: 9999; /* Asegura que el logotipo esté por encima de todo 
+}
+
+.logo {
+  width: 50px; /* Ajusta el ancho del logotipo según sea necesario 
+  height: auto; /* Permite que la altura se ajuste automáticamente según el ancho 
+}*/
+
 .menu {
   background-color: #919c979c;
   padding: 0px;
