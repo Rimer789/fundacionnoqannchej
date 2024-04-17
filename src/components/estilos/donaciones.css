@@ -5,21 +5,25 @@ body {
 }
 
 /* Contenedor principal dividido en 4 secciones */
-#contenedor {
-  margin-top: 5%;
+#contenedord {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Toma el 100% de la altura de la ventana */
-  background-color: #2c3e503b;
+  position: relative;
+  background-image: url('../../interfaz/pestañadonar.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100vh;
 }
 .mensaje-importante {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Puedes cambiar la fuente según tus preferencias */
-  font-size: 1.2em; /* Tamaño de la fuente */
-  color: #000000; /* Color del texto */
-  text-align: center; /* Alineación del texto */
-  line-height: 1.4; /* Altura de línea */
-  margin: 20px 0; /* Margen superior e inferior */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold; /* Hace que el texto sea negrita */
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.4;
+  margin: 20px 0;
 }
+
 
 /* Estilos adicionales si es necesario */
 .mensaje-importante span {
@@ -48,18 +52,23 @@ body {
 }
 
 #izquierdo {
-  background-color: #96dbb37a; /* Color de fondo izquierdo */
+  background-color: #96dbb300; /* Color de fondo izquierdo */
   border-radius: 50px;
 }
 
 #derecho {
-  background-color: #e0d5d38a; /* Color de fondo derecho */
+  background-color: #e0d5d300;
   border-radius: 50px;
   display: flex;
-  flex-direction: column; /* Alinear elementos en una columna */
-  justify-content: center; /* Centrar verticalmente */
-  align-items: center; /* Centrar horizontalmente */
-  padding: 20px; /* Ajusta el relleno según sea necesario */
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding: 20px;
+}
+
+/* Estilos para cada elemento dentro de #derecho */
+#derecho > * {
+  margin-bottom: 10px; /* Espacio entre elementos */
 }
 
 
@@ -73,7 +82,6 @@ body {
 /* Estilos generales para los botones */
 button {
   padding: 10px;
-  margin: 5px;
   border: none;
   cursor: pointer;
   outline: none;
@@ -83,6 +91,15 @@ button {
 .boton-bancaria {
   background-color: #3498db; /* Color azul */
   color: #ffffff; /* Color del texto */
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se muestre completa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el botón */
+  width: 300px; /* Ancho del botón, ajusta según sea necesario */
+  height: 60px; /* Altura del botón, ajusta según sea necesario */
+  border-top-left-radius: 30px; /* Redondea la esquina superior izquierda */
+  border-bottom-left-radius: 30px; /* Redondea la esquina inferior izquierda */
+  border-top-right-radius: 30px; /* Redondea la esquina superior derecha */
+  border-bottom-right-radius: 30px;
 }
 
 .boton-bancaria:hover {
@@ -95,22 +112,68 @@ button {
 
 /* Estilos para el botón de PayPal */
 .boton-paypal {
-  background-color: #469dd6; /* Color verde */
-  color: #ffffff; /* Color del texto */
+  background-image: url('../../interfaz/paypa.jpg');
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se muestre completa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el botón */
+  width: 300px; /* Ancho del botón, ajusta según sea necesario */
+  height: 60px; /* Altura del botón, ajusta según sea necesario */
+  border-top-left-radius: 30px; /* Redondea la esquina superior izquierda */
+  border-bottom-left-radius: 30px; /* Redondea la esquina inferior izquierda */
+  border-top-right-radius: 30px; /* Redondea la esquina superior derecha */
+  border-bottom-right-radius: 30px;
 }
 
-.boton-paypal:hover {
-  background-color: #075eff; /* Cambio de color al pasar el ratón */
-}
 
-.boton-paypal.seleccionado {
-  background-color: #388e3c; /* Color diferente cuando está seleccionado */
-}
 
 /* Estilos para el botón de Yape */
 .boton-yape {
-  background-color: #d33ce7; /* Color rojo */
-  color: #ffffff; /* Color del texto */
+  background-image: url('../../interfaz/yape.jpg');
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se muestre completa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el botón */
+  width: 300px; /* Ancho del botón, ajusta según sea necesario */
+  height: 60px; /* Altura del botón, ajusta según sea necesario */
+  border-top-left-radius: 30px; /* Redondea la esquina superior izquierda */
+  border-bottom-left-radius: 30px; /* Redondea la esquina inferior izquierda */
+  border-top-right-radius: 30px; /* Redondea la esquina superior derecha */
+  border-bottom-right-radius: 30px;
+}
+.boton-pay {
+  background-image: url('../../interfaz/pay.jpg');
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se muestre completa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el botón */
+  width: 300px; /* Ancho del botón, ajusta según sea necesario */
+  height: 60px; /* Altura del botón, ajusta según sea necesario */
+  border-top-left-radius: 30px; /* Redondea la esquina superior izquierda */
+  border-bottom-left-radius: 30px; /* Redondea la esquina inferior izquierda */
+  border-top-right-radius: 30px; /* Redondea la esquina superior derecha */
+  border-bottom-right-radius: 30px;
+}
+.boton-fli {
+  background-image: url('../../interfaz/fli.jpg');
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se muestre completa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el botón */
+  width: 300px; /* Ancho del botón, ajusta según sea necesario */
+  height: 60px; /* Altura del botón, ajusta según sea necesario */
+  border-top-left-radius: 30px; /* Redondea la esquina superior izquierda */
+  border-bottom-left-radius: 30px; /* Redondea la esquina inferior izquierda */
+  border-top-right-radius: 30px; /* Redondea la esquina superior derecha */
+  border-bottom-right-radius: 30px;
+}
+.boton-donate {
+  background-image: url('../../interfaz/donate.jpg');
+  background-size: contain; /* Ajusta el tamaño de la imagen para que se muestre completa */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el botón */
+  width: 300px; /* Ancho del botón, ajusta según sea necesario */
+  height: 60px; /* Altura del botón, ajusta según sea necesario */
+  border-top-left-radius: 30px; /* Redondea la esquina superior izquierda */
+  border-bottom-left-radius: 30px; /* Redondea la esquina inferior izquierda */
+  border-top-right-radius: 30px; /* Redondea la esquina superior derecha */
+  border-bottom-right-radius: 30px;
 }
 
 .boton-yape:hover {
@@ -142,6 +205,9 @@ button {
 #redes-sociales a:hover {
   color: #ffcc00;
 }
+
+
+
 
 /* Estilos para el modal */
 .modal {
@@ -185,10 +251,9 @@ button {
 }
 
 .imagen-redonda {
-  width: 100%; /* Ajusta el tamaño de la imagen según tus necesidades */
-  height: 100%;
-  border-radius: 50%; /* Hace que la imagen tenga forma redonda */
-  object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
+  width: 100%; /* Ajusta el ancho de la imagen para llenar el contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
+  object-fit: cover;
 }
 
 /* Media query solo para dispositivos móviles */

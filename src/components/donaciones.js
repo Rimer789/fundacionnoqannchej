@@ -3,7 +3,7 @@ import { FaPaypal, FaMoneyBill, FaYenSign } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import "./estilos/donaciones.css";
-import imagen9 from "..//imagenes/imagen9.jpg";
+import imagen9 from "..//interfaz/marcanoqacchej.png";
 
 
 export default function Donaciones() {
@@ -25,7 +25,9 @@ export default function Donaciones() {
   };
 
   return (
-    <div id="contenedor">
+    <div id="contenedord">
+      <br/>
+      <br/>
       <div class="mensaje-importante">
         ¡Únete a nuestra misión verde! Tu donación ayuda a forestar y plantar más árboles, contribuyendo al bienestar del planeta y construyendo un futuro más sostenible. ¡Cada aporte cuenta en nuestra labor para cuidar nuestro hogar común!
       </div>
@@ -34,11 +36,12 @@ export default function Donaciones() {
       <div id="division">
         <div id="izquierdo">
           <img className="imagen-redonda" src={imagen9} alt="Imagen 2" />
-
+          <div class="mensaje-importante">
+            Forestemos y reforestemos juntos, nuestra amazonia
+      </div>
         </div>
 
         <div id="derecho">
-          <h2>Dona mediante </h2>
           <button
             className={`boton-bancaria ${botonSeleccionado === "bancaria" ? "seleccionado" : ""}`}
             onClick={() => {
@@ -49,7 +52,9 @@ export default function Donaciones() {
             <FaMoneyBill />
             <span>Cuenta Bancaria</span>
           </button>
-          <h3>proximamente</h3>
+          <div class="mensaje-importante">
+            Proximamente
+      </div>
           <div>
             <button
               className={`boton-paypal ${botonSeleccionado === "paypal" ? "seleccionado" : ""}`}
@@ -58,11 +63,9 @@ export default function Donaciones() {
                 seleccionarBoton("paypal");
               }}
             >
-              <FaPaypal />
-              <span>PayPal</span>
+              <span></span>
             </button>
           </div>
-          <br />
           <div>
             <button
               className={`boton-yape ${botonSeleccionado === "yape" ? "seleccionado" : ""}`}
@@ -71,8 +74,41 @@ export default function Donaciones() {
                 seleccionarBoton("yape");
               }}
             >
-              <FaYenSign />
-              <span>Yape</span>
+              <span></span>
+            </button>
+            
+          </div>
+          <div>
+          <button
+              className={`boton-pay ${botonSeleccionado === "pay" ? "seleccionado" : ""}`}
+              onClick={() => {
+                mostrarModal("Información de pay");
+                seleccionarBoton("pay");
+              }}
+            >
+              <span></span>
+            </button>
+          </div>
+          <div>
+          <button
+              className={`boton-fli ${botonSeleccionado === "fli" ? "seleccionado" : ""}`}
+              onClick={() => {
+                mostrarModal("Información de fli");
+                seleccionarBoton("fli");
+              }}
+            >
+              <span></span>
+            </button>
+          </div>
+          <div>
+          <button
+              className={`boton-donate ${botonSeleccionado === "donate" ? "seleccionado" : ""}`}
+              onClick={() => {
+                mostrarModal("Información de donate");
+                seleccionarBoton("donate");
+              }}
+            >
+              <span></span>
             </button>
           </div>
         </div>
