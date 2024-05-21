@@ -65,7 +65,7 @@ export default function Informacion() {
     return (
         <div id="contenedori">
             <head>
-                <title> NOQANCHEJ FUNDACION - Restauración y Conservación del Medio Ambiente</title>
+                <title> ALCALDIA DE PUNATA - Restauración y Conservación del Medio Ambiente</title>
                 <meta name="description" content="NOQANCHEJ está comprometido con la restauración y conservación del medio ambiente, promoviendo un futuro sostenible para las generaciones venideras." />
             </head>
             <div id="divisioni">
