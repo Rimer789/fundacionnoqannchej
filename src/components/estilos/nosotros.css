@@ -350,3 +350,52 @@ p{
   font-size: 2.5ch;
 
 }
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  #contenedorn, #contenedorn1, #contenedorn2 {
+    height: auto;
+    background-size: auto;
+    padding: 10px;
+  }
+
+  #divisionn, #divisionn1, #divisionn2 {
+    flex-direction: column-reverse; /* Apilado vertical */
+  }
+
+  #izquierdon, #derechon, #izquierdon1, #derechon1, #izquierdon2, #derechon2 {
+    height: auto; /* Ajusta la altura para móviles */
+    padding: 10px;
+  }
+
+  #titulon, #titulon1 {
+    font-size: 28px; /* Tamaño más pequeño en móviles */
+    margin-top: 15%;
+  }
+
+  .mensaje-importanten {
+    font-size: 1em; /* Texto más pequeño para móviles */
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 2ch; /* Ajustar tamaño de fuente */
+  }
+
+  .boton-flotante {
+    width: 100px;
+    height: 60px;
+    font-size: 20px;
+    line-height: 50px;
+  }
+
+  .imagen-redondai {
+    width: 30%; /* Imagen más grande en móviles */
+    height: auto;
+  }
+  .n {
+    font-size: 27px;
+    font-family: 'Utendo Black', sans-serif;
+}
+}
+

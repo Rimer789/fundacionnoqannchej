@@ -73,9 +73,7 @@ const Menu = () => {
                     <li className={location.pathname === '/proyectos' ? 'active' : ''} onClick={() => handleLinkClick('/proyectos')}>
                         <Link to="/proyectos">PROYECTOS</Link>
                     </li>
-                    <li className={location.pathname === '/contactos' ? 'active' : ''} onClick={() => handleLinkClick('/contactos')}>
-                        <Link to='/contactos'>CONVENIOS</Link>
-                    </li>
+                   
                     <li className={location.pathname === '/donaciones' ? 'active' : ''} onClick={() => handleLinkClick('/donaciones')}>
                         <Link to='/donaciones'>DONAR</Link>
                     </li>

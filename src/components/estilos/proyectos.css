@@ -18,6 +18,8 @@ body {
   padding: 20px;
   flex-wrap: wrap; 
   margin: auto;
+  animation: fade-in-out 0.6s ease-in-out;
+
 }
 
 
@@ -34,8 +36,23 @@ body {
   width: 200px;
   flex-shrink: 0;
   margin-left: -8%;
-}
+  transition: transform 0.3s ease-in-out;
 
+}
+  
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .proyecto img {
   width: 100px;
   height: 200px;
@@ -66,6 +83,8 @@ body {
   background-position: center;
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.26);
+  transition: background-image 0.5s ease-in-out;
+
 
 }
 
@@ -102,4 +121,67 @@ body {
 
 #redes-socialesi a:hover {
   color: #ffcc00;
+}
+@media (max-width: 768px) {
+  .proyectos-container {
+    flex-direction: column; /* Cambiar a apilado vertical */
+    height: auto; /* Ajustar altura para contenido dinámico */
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .proyectos-izquierda {
+    width: 90%; /* Reducir el ancho para móviles */
+    margin: 10px auto; /* Centrar horizontalmente */
+    text-align: center; /* Centrar texto */
+    padding: 10px;
+  }
+
+  .proyectos-derecha {
+    width: 100%; /* Ajustar ancho al 100% del contenedor */
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Centrar los proyectos */
+    flex-wrap: wrap; /* Permitir que los proyectos se alineen en filas */
+    gap: 10px; /* Espacio entre proyectos */
+    overflow-x: hidden; /* Evitar desbordamiento horizontal */
+  }
+
+  .proyecto {
+    width: 30%; /* Reducir tamaño del proyecto */
+    flex-shrink: 0;
+    margin: 5px 0; /* Espacio entre proyectos verticalmente */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .proyecto img {
+    width: 100%; /* Asegurar que la imagen llene el contenedor */
+    height: auto; /* Ajustar altura automáticamente */
+    border-radius: 5px;
+  }
+
+  .project-details h2 {
+    font-size: 1.5em; /* Ajustar tamaño del título */
+    margin-top: 10%; /* Eliminar margen superior */
+    width: 100%; /* Ajustar al contenedor */
+  }
+
+  .project-details p {
+    font-size: 1em; /* Ajustar tamaño del texto */
+    width: 100%; /* Ajustar al contenedor */
+    line-height: 1.4;
+  }
+
+  .background-image {
+    height: 40vh; /* Reducir altura de la imagen de fondo */
+  }
+
+  #referenciasi {
+    font-size: 14px; /* Ajustar tamaño del texto en pie de página */
+  }
+
+  #redes-socialesi {
+    font-size: 18px; /* Ajustar tamaño de iconos sociales */
+  }
 }

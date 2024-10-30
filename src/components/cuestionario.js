@@ -1,58 +1,66 @@
 import React, { useState } from "react";
-import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './estilos/cuestionario.css';
 
 const Cuestionario = () => {
   const [respuestas, setRespuestas] = useState({});
   const [preguntaActual, setPreguntaActual] = useState(0);
+  const [error, setError] = useState(false);
 
   const preguntas = [
-    "Tipo de combustible:",
-    "Eficiencia del combustible (Rendimiento del automóvil):",
-    "Distancia recorrida diariamente:",
-    "Frecuencia de conducción:",
-    "Emisiones de CO2 por unidad de combustible:",
-    "Consumo diario de combustible:",
-    "Factor de emisión de CO2 del combustible:",
-    "¿Realizas mantenimiento regular en tu automóvil para mejorar la eficiencia del combustible?",
-    "¿Tu automóvil cuenta con tecnologías de eficiencia energética, como start-stop o modo Eco?",
-    "¿Consideras opciones de transporte alternativas para reducir la dependencia del automóvil?"
+    "¿Qué tipo de combustible utiliza tu vehículo?",
+    "¿Cuántos kilómetros recorre tu automóvil con un litro de combustible?",
+    "¿Cuántos kilómetros sueles recorrer en un día promedio?",
+    "¿Con qué frecuencia utilizas tu automóvil?",
+    "¿Sabías cuántos kilogramos de dióxido de carbono se producen por cada litro de combustible?",
+    "¿Cuántos litros de combustible consumes en un día promedio?",
+    "¿Realizas mantenimiento regular para mejorar el rendimiento del combustible?",
+    "¿Tu automóvil tiene funciones de eficiencia energética, como modo Eco?",
+    "¿Usas alternativas como bicicleta o transporte público para reducir emisiones?",
+    "¿Te gustaría contribuir plantando árboles para compensar tus emisiones de dióxido de carbono?"
   ];
 
   const opciones = [
     ["Gasolina", "Diésel", "Eléctrico", "Otro"],
-    ["Menos de 20 MPG / 8.5 km por litro", "20-30 MPG / 8.5-12.8 km por litro", "Más de 30 MPG / 12.8 km por litro"],
-    ["Menos de 20 km", "20-50 km", "Más de 50 km"],
-    ["Diariamente", "Solo durante la semana laboral", "Ocasionalmente"],
-    ["Menos de 2.5 kg CO2 por litro / 9.4 kg CO2 por galón", "2.5-3.5 kg CO2 por litro / 9.4-13.2 kg CO2 por galón", "Más de 3.5 kg CO2 por litro / 13.2 kg CO2 por galón"],
-    ["Menos de 10 litros", "10-20 litros", "Más de 20 litros"],
-    ["Menos de 2.5 kg CO2 por litro / 9.4 kg CO2 por galón", "2.5-3.5 kg CO2 por litro / 9.4-13.2 kg CO2 por galón", "Más de 3.5 kg CO2 por litro / 13.2 kg CO2 por galón"],
-    ["Sí, regularmente", "Ocasionalmente", "No"],
+    ["Menos de 8 km/l", "8-12 km/l", "Más de 12 km/l"],
+    ["Menos de 10 km", "10-30 km", "Más de 30 km"],
+    ["Diariamente", "Entre semana", "Ocasionalmente"],
+    ["Menos de 2.5 kg de dióxido de carbono", "2.5-3.5 kg de dióxido de carbono", "Más de 3.5 kg de dióxido de carbono"],
+    ["Menos de 5 litros", "5-15 litros", "Más de 15 litros"],
+    ["Sí", "No", "A veces"],
     ["Sí", "No", "No estoy seguro"],
-    ["Sí, regularmente", "Ocasionalmente", "No"]
+    ["Sí, frecuentemente", "Ocasionalmente", "Nunca"],
+    ["Sí, me encantaría", "Quizás en el futuro", "No"]
   ];
 
   const manejarSiguiente = () => {
-    setPreguntaActual((prevPregunta) => prevPregunta + 1);
+    if (!respuestas[preguntaActual]) {
+      setError(true);
+    } else {
+      setError(false);
+      setPreguntaActual((prev) => prev + 1);
+    }
   };
 
   const manejarAtras = () => {
-    setPreguntaActual((prevPregunta) => prevPregunta - 1);
+    setError(false);
+    setPreguntaActual((prev) => prev - 1);
   };
 
-  const manejarRespuesta = (opcionSeleccionada) => {
-    setRespuestas({ ...respuestas, [preguntaActual]: opcionSeleccionada });
+  const manejarRespuesta = (opcion) => {
+    setRespuestas({ ...respuestas, [preguntaActual]: opcion });
+    setError(false);
   };
 
   const calcularEmisiones = () => {
-    // Lógica de cálculo de emisiones
     const diasConducidosAlAno = 365;
-    const distanciaDiaria = respuestas[2] === "Menos de 20 km" ? 20 : respuestas[2] === "20-50 km" ? 50 : 100;
-    const eficienciaCombustible = respuestas[1] === "Menos de 20 MPG / 8.5 km por litro" ? 8.5 : respuestas[1] === "20-30 MPG / 8.5-12.8 km por litro" ? 12.8 : 20;
-    const emisionesCombustible = respuestas[4] === "Menos de 2.5 kg CO2 por litro / 9.4 kg CO2 por galón" ? 2.5 : respuestas[4] === "2.5-3.5 kg CO2 por litro / 9.4-13.2 kg CO2 por galón" ? 3.5 : 5;
-    const consumoDiario = respuestas[5] === "Menos de 10 litros" ? 10 : respuestas[5] === "10-20 litros" ? 20 : 30;
+    const distanciaDiaria = respuestas[2] === "Menos de 10 km" ? 10 : respuestas[2] === "10-30 km" ? 30 : 50;
+    const eficiencia = respuestas[1] === "Menos de 8 km/l" ? 8 : respuestas[1] === "8-12 km/l" ? 12 : 15;
+    const emisionesPorLitro = respuestas[4] === "Menos de 2.5 kg de dióxido de carbono" ? 2.5 : respuestas[4] === "2.5-3.5 kg de dióxido de carbono" ? 3.5 : 5;
+    const consumo = respuestas[5] === "Menos de 5 litros" ? 5 : respuestas[5] === "5-15 litros" ? 15 : 20;
 
-    const emisionesDiarias = (distanciaDiaria / eficienciaCombustible) * emisionesCombustible;
-    const emisionesAnuales = emisionesDiarias * diasConducidosAlAno * consumoDiario;
+    const emisionesDiarias = (distanciaDiaria / eficiencia) * emisionesPorLitro;
+    const emisionesAnuales = emisionesDiarias * diasConducidosAlAno * consumo;
 
     return {
       emisionesDiarias: emisionesDiarias.toFixed(2),
@@ -61,45 +69,64 @@ const Cuestionario = () => {
   };
 
   const mostrarResultados = () => {
-    const resultados = calcularEmisiones();
+    const { emisionesDiarias, emisionesAnuales } = calcularEmisiones();
     return (
-      <div>
-        <h3>Resultados:</h3>
-        <p>Emisiones Diarias: {resultados.emisionesDiarias} kg CO2</p>
-        <p>Emisiones Anuales: {resultados.emisionesAnuales} kg CO2</p>
+      <div className="cues-resultados">
+        <h3>Resultados</h3>
+        <p>Emisiones diarias: {emisionesDiarias} kilogramos de dióxido de carbono</p>
+        <p>Emisiones anuales: {emisionesAnuales} kilogramos de dióxido de carbono</p>
+        <p>
+          Cada acción cuenta. Considera utilizar alternativas de transporte más
+          sostenibles y contribuir plantando árboles para reducir las emisiones
+          de dióxido de carbono.
+        </p>
+        <p>¡Juntos podemos cuidar el planeta y crear un futuro más verde!</p>
+        <Link to="/" className="cues-boton">Volver al inicio</Link>
+        <Link to="/donaciones" className="cues-botonn">apoya</Link>
+
       </div>
     );
   };
 
   return (
-    <div>
-      <h1>Cuestionario y Calculadora</h1>
+    <div className="bodyy">
+    <div className="cues-cuestionario">
+      <h1>Cuestionario de Emisiones</h1>
       {preguntaActual < preguntas.length ? (
-        <div>
+        <div className="cues-pregunta">
           <h3>{preguntas[preguntaActual]}</h3>
-          <div>
+          <div className="cues-opciones">
             {opciones[preguntaActual].map((opcion, index) => (
               <button
                 key={index}
                 onClick={() => manejarRespuesta(opcion)}
-                style={{ backgroundColor: respuestas[preguntaActual] === opcion ? "lightblue" : "white" }}
+                className={`cues-boton-opcion ${respuestas[preguntaActual] === opcion ? "cues-seleccionado" : ""}`}
               >
                 {opcion}
               </button>
             ))}
           </div>
-          <button onClick={manejarAtras} disabled={preguntaActual === 0}>
-            Atrás
-          </button>
-          <button onClick={manejarSiguiente}>Siguiente</button>
+          {error && <p className="cues-error">Por favor, selecciona una opción para continuar.</p>}
+          <div className="cues-controles">
+            <button onClick={manejarAtras} disabled={preguntaActual === 0} className="cues-boton">
+              Atrás
+            </button>
+            <button onClick={manejarSiguiente} className="cues-boton">
+              Siguiente
+            </button>
+          </div>
         </div>
       ) : (
-        <div>
-          {mostrarResultados()}
-          <Link to="/">atras</Link>
-        </div>
+        mostrarResultados()
       )}
-      <Link to="/">atras</Link>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
     </div>
   );
 };

@@ -66,6 +66,11 @@ export default function nosotros() {
                     </div>
                 </div>
             </div>
+    <br/>
+    <br/>
+    <br/>
+   
+
 
             <div id="referenciasi">
                 <div id="redes-socialesi">
@@ -74,14 +79,14 @@ export default function nosotros() {
                     </a>
                     <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faWhatsapp} />
-                    </a>
+                    </a> 
                     <a href="https://www.instagram.com/noqanchej/" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faInstagram} />
                     </a>
                     <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
-                </div>
+                </div> 
             </div>
 
         </div>
