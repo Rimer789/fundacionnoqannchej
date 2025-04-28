@@ -1,7 +1,5 @@
-// Menu.js
-
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Home from '../components/informacion';
 import Nosotros from '../components/nosotros';
 import Proyectos from '../components/proyectos';
@@ -9,12 +7,13 @@ import './cs.css';
 import Contactos from '../components/contactos';
 import Donaciones from '../components/donaciones';
 import Cuestionario from '../components/cuestionario';
-import blancoImg from './blanco.jpg';
-
+import blancoImg from './logo.jpg';
 
 const Menu = () => {
     const [menuActive, setMenuActive] = useState(false);
-    const [isNavFixed, setIsNavFixed] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [showMenu, setShowMenu] = useState(true);
+    const menuRef = useRef(null);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -28,59 +27,61 @@ const Menu = () => {
     };
 
     useEffect(() => {
-        let prevScrollPos = window.scrollY;
-
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const nav = document.querySelector('.menu');
-
-            if (scrollPosition > prevScrollPos) {
-                // Oculta el menú al hacer scroll hacia abajo
-                nav.classList.add('hidden');
-            } else {
-                // Muestra el menú al hacer scroll hacia arriba
-                nav.classList.remove('hidden');
+        const controlNavbar = () => {
+            if (typeof window !== 'undefined') {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    setShowMenu(false);
+                } 
+                else if (currentScrollY < lastScrollY) {
+                    setShowMenu(true);
+                }
+                
+                setLastScrollY(currentScrollY);
             }
-
-            prevScrollPos = scrollPosition;
         };
 
-        window.addEventListener('scroll', handleScroll);
-
+        window.addEventListener('scroll', controlNavbar);
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', controlNavbar);
         };
-    }, []);
+    }, [lastScrollY]);
 
     return (
         <>
-            <div style={{ marginBottom: isNavFixed ? '60px' : '0' }}>
-            </div>
-            <nav className={`menu ${menuActive || isNavFixed ? 'active' : ''}`}>
-                <div className="hamburger-icon" onClick={toggleMenu}>
-                    &#9776;
+            <nav 
+                ref={menuRef}
+                className={`menu ${menuActive ? 'active' : ''} ${showMenu ? 'show' : 'hide'}`}
+            >
+                <div className="menu-container">
+                    <div className="menu-header">
+                        <div className="logo-container">
+                            <img src={blancoImg} alt="Logotipo de la fundación" className="logo" />
+                        </div>
+                        <div className="hamburger-icon" onClick={toggleMenu}>
+                            &#9776;
+                        </div>
+                    </div>
+                    
+                    <ul>
+                        <li className={location.pathname === '/' ? 'active' : ''} onClick={() => handleLinkClick('/')}>
+                            <Link to="/">QUIÉNES SOMOS</Link>
+                        </li>
+                        <li className={location.pathname === '/nosotros' ? 'active' : ''} onClick={() => handleLinkClick('/nosotros')}>
+                            <Link to="/nosotros">QUÉ HACEMOS</Link>
+                        </li>
+                        <li className={location.pathname === '/proyectos' ? 'active' : ''} onClick={() => handleLinkClick('/proyectos')}>
+                            <Link to="/proyectos">PROYECTOS</Link>
+                        </li>
+                        <li className={location.pathname === '/donaciones' ? 'active' : ''} onClick={() => handleLinkClick('/donaciones')}>
+                            <Link to='/donaciones'>DONAR</Link>
+                        </li>
+                    </ul>
                 </div>
-                <ul>
-                    {/* <div className="logo-container">
-                        <img src={blancoImg} alt="Logotipo" className="logo" />
-                    </div> */}
-                    <li className={location.pathname === '/' ? 'active' : ''} onClick={() => handleLinkClick('/')}>
-                        <Link to="/">QUIENES SOMOS?</Link>
-                    </li>
-                    <li className={location.pathname === '/nosotros' ? 'active' : ''} onClick={() => handleLinkClick('/nosotros')}>
-                        <Link to="/nosotros">QUE HACEMOS?</Link>
-                    </li>
-                    <li className={location.pathname === '/proyectos' ? 'active' : ''} onClick={() => handleLinkClick('/proyectos')}>
-                        <Link to="/proyectos">PROYECTOS</Link>
-                    </li>
-                   
-                    <li className={location.pathname === '/donaciones' ? 'active' : ''} onClick={() => handleLinkClick('/donaciones')}>
-                        <Link to='/donaciones'>DONAR</Link>
-                    </li>
-
-                </ul>
             </nav>
-            <div>
+
+            <div className="contenido-despues-del-menu">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/nosotros" element={<Nosotros />} />

@@ -1,143 +1,159 @@
 import React, { useState } from "react";
-import { FaPaypal, FaMoneyBill, FaYenSign } from "react-icons/fa";
+import { FaPaypal, FaMoneyBill, FaCopy } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faWhatsapp, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { 
+  faFacebook, 
+  faWhatsapp, 
+  faInstagram, 
+  faTwitter 
+} from "@fortawesome/free-brands-svg-icons";
 import "./estilos/donaciones.css";
-import imagen9 from "..//interfaz/marcanoqacchej.png";
-
+import imagen9 from "../interfaz/marcanoqacchej.png";
 
 export default function Donaciones() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [botonInfo, setBotonInfo] = useState("");
-  const [botonSeleccionado, setBotonSeleccionado] = useState(null);
+  const [selectedMethod, setSelectedMethod] = useState(null);
 
-  const mostrarModal = (info) => {
-    setBotonInfo(info);
+  const paymentMethods = [
+    {
+      id: "bancaria",
+      name: "Transferencia Bancaria",
+      icon: <FaMoneyBill className="payment-icon" />,
+      info: {
+        title: "Información Bancaria",
+        content: (
+          <div className="bank-details">
+            <p><strong>Banco:</strong> Banco Nacional de Bolivia</p>
+            <p><strong>Nombre:</strong> Fundación NOQANCHEJ</p>
+            <p><strong>N° de Cuenta:</strong> 1500-4567-8901</p>
+            <p><strong>CI/NIT:</strong> 123456789</p>
+            <p><strong>Tipo de Cuenta:</strong> Cuenta Corriente</p>
+            <button className="copy-btn" onClick={() => navigator.clipboard.writeText("1500-4567-8901")}>
+              <FaCopy /> Copiar N° de Cuenta
+            </button>
+          </div>
+        )
+      }
+    },
+    {
+      id: "paypal",
+      name: "PayPal",
+      icon: <FaPaypal className="payment-icon" />,
+      info: {
+        title: "Donación por PayPal",
+        content: "Próximamente disponible. Estamos trabajando para habilitar esta opción de pago."
+      }
+    },
+    {
+      id: "yape",
+      name: "Yape",
+      icon: <span className="payment-icon">YAPE</span>,
+      info: {
+        title: "Donación por Yape",
+        content: "Próximamente disponible. Estamos trabajando para habilitar esta opción de pago."
+      }
+    }
+  ];
+
+  const openModal = (method) => {
+    setSelectedMethod(method);
     setModalVisible(true);
   };
 
-  const cerrarModal = () => {
+  const closeModal = () => {
     setModalVisible(false);
   };
 
-  const seleccionarBoton = (boton) => {
-    setBotonSeleccionado(boton);
-  };
-
   return (
-    <div id="contenedord">
-      <br/>
-      <br/>
-      <div class="mensaje-importante">
-        ¡Únete a nuestra misión verde! Tu donación ayuda a forestar y plantar más árboles, contribuyendo al bienestar del planeta y construyendo un futuro más sostenible. ¡Cada aporte cuenta en nuestra labor para cuidar nuestro hogar común!
+    <div className="donaciones-container">
+      <div className="donaciones-header">
+        <div className="mission-statement">
+          ¡Únete a nuestra misión verde! Tu donación ayuda a forestar y plantar más árboles, 
+          contribuyendo al bienestar del planeta y construyendo un futuro más sostenible. 
+          ¡Cada aporte cuenta en nuestra labor para cuidar nuestro hogar común!
+        </div>
       </div>
 
-
-      <div id="division">
-        <div id="izquierdo">
-          <img className="imagen-redonda" src={imagen9} alt="Imagen 2" />
-          <div class="mensaje-importante">
+      <div className="donaciones-content">
+        <div className="donacion-image-section">
+          <img 
+            src={imagen9} 
+            alt="Logo NOQANCHEJ" 
+            className="donacion-image"
+          />
+          <div className="image-caption">
             Forestemos y reforestemos juntos, nuestra amazonia
-      </div>
+          </div>
         </div>
 
-        <div id="derecho">
-          <button
-            className={`boton-bancaria ${botonSeleccionado === "bancaria" ? "seleccionado" : ""}`}
-            onClick={() => {
-              mostrarModal("Cuenta Bancaria");
-              seleccionarBoton("bancaria");
-            }}
+        <div className="payment-methods">
+          <h2 className="payment-title">Métodos de Donación</h2>
+          
+          <div className="payment-method">
+            {paymentMethods.map((method) => (
+              <button
+                key={method.id}
+                className={`payment-btn ${selectedMethod === method.id ? 'selected' : ''}`}
+                onClick={() => openModal(method.id)}
+              >
+                {method.icon}
+                <span>{method.name}</span>
+              </button>
+            ))}
+          </div>
+
+          <p className="coming-soon">Más métodos de pago próximamente</p>
+        </div>
+      </div>
+
+      <footer className="donaciones-footer">
+        <div className="social-links">
+          <a 
+            href="https://www.facebook.com/profile.php?id=61556457446489" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
           >
-            <FaMoneyBill />
-            <span>Cuenta Bancaria</span>
-          </button>
-          <div class="mensaje-importante">
-            Proximamente
-      </div>
-          <div>
-            <button
-              className={`boton-paypal ${botonSeleccionado === "paypal" ? "seleccionado" : ""}`}
-              onClick={() => {
-                mostrarModal("Información de PayPal");
-                seleccionarBoton("paypal");
-              }}
-            >
-              <span></span>
-            </button>
-          </div>
-          <div>
-            <button
-              className={`boton-yape ${botonSeleccionado === "yape" ? "seleccionado" : ""}`}
-              onClick={() => {
-                mostrarModal("Información de Yape");
-                seleccionarBoton("yape");
-              }}
-            >
-              <span></span>
-            </button>
-            
-          </div>
-          <div>
-          <button
-              className={`boton-pay ${botonSeleccionado === "pay" ? "seleccionado" : ""}`}
-              onClick={() => {
-                mostrarModal("Información de pay");
-                seleccionarBoton("pay");
-              }}
-            >
-              <span></span>
-            </button>
-          </div>
-          <div>
-          <button
-              className={`boton-fli ${botonSeleccionado === "fli" ? "seleccionado" : ""}`}
-              onClick={() => {
-                mostrarModal("Información de fli");
-                seleccionarBoton("fli");
-              }}
-            >
-              <span></span>
-            </button>
-          </div>
-          <div>
-          <button
-              className={`boton-donate ${botonSeleccionado === "donate" ? "seleccionado" : ""}`}
-              onClick={() => {
-                mostrarModal("Información de donate");
-                seleccionarBoton("donate");
-              }}
-            >
-              <span></span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div id="referencias">
-        <div id="redes-sociales">
-          <a href="https://www.facebook.com/profile.php?id=61556457446489" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+          <a 
+            href="https://wa.me/1234567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+          >
             <FontAwesomeIcon icon={faWhatsapp} />
           </a>
-          <a href="https://www.instagram.com/noqanchej/" target="_blank" rel="noopener noreferrer">
+          <a 
+            href="https://www.instagram.com/noqanchej/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+          >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+          <a 
+            href="https://twitter.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+          >
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </div>
-      </div>
+        <p className="copyright">© {new Date().getFullYear()} NOQANCHEJ FUNDACION. Todos los derechos reservados.</p>
+      </footer>
 
       {modalVisible && (
-        <div className="modal">
-          <div className="modal-contenido mediano">
-            <p>{botonInfo}</p>
-            <button className="cerrar-modal" onClick={cerrarModal}>
-              Cerrar
-            </button>
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="modal-close" onClick={closeModal}>×</button>
+            <h3 className="modal-title">
+              {paymentMethods.find(m => m.id === selectedMethod)?.info.title}
+            </h3>
+            <div className="modal-body">
+              {paymentMethods.find(m => m.id === selectedMethod)?.info.content}
+            </div>
           </div>
         </div>
       )}
